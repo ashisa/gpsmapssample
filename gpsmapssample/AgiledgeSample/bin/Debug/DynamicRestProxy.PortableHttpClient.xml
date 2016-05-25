@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DynamicRestProxy.PortableHttpClient</name>
+    </assembly>
+    <members>
+        <member name="T:DynamicRestProxy.BinderExtensions">
+            <summary>
+            Extension methods to differentiate named and unnamed args on dynamic member binder
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.BinderExtensions.IsVerb(System.Dynamic.InvokeMemberBinder)">
+            <summary>
+            We use the binder name as either a verb invocation method name or as a uri segment argument
+            </summary>
+            <param name="binder">the binder</param>
+            <returns>returns true if the binder name is one of the supported http verbs</returns>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.ContentInfo">
+            <summary>
+            Holder class for a content object and metadata about that object to be set in
+            content headers if provided
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.ContentInfo.#ctor(System.Object,System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="content"></param>
+            <param name="mimeType"></param>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.ContentInfo.ContentHeaders">
+            <summary>
+            Additional content headers
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.ContentInfo.Content">
+            <summary>
+            The content to send
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.ContentInfo.MimeType">
+            <summary>
+            The MIME type of the content object
+            </summary>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults">
+            <summary>
+            Default values that will be added all requests
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.DefaultParameters">
+            <summary>
+            Default paramter values
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.DefaultHeaders">
+            <summary>
+            Default request header values
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.AuthToken">
+            <summary>
+            Auth token to add to all requests
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.AuthScheme">
+            <summary>
+            The Auth scheme used for AuthToken
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults.UserAgent">
+            <summary>
+            User agent string in the format product/version
+            </summary>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.DynamicRestClientResponseException">
+            <summary>
+            Exception thrown when response status does not indicate success (<see cref="P:System.Net.Http.HttpResponseMessage.IsSuccessStatusCode"/>)
+            Allows response content and headers to be inspected on failure
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClientResponseException.Response">
+            <summary>
+            The response
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClientResponseException.#ctor(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            ctor
+            </summary>
+            <param name="response">The response</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClientResponseException.#ctor(System.Net.Http.HttpResponseMessage,System.Exception)">
+            <summary>
+            ctore
+            </summary>
+            <param name="response">The response</param>
+            <param name="inner">An inner exception</param>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.HttpClientExtensions">
+            <summary>
+            Extension methods to aid deserialization
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.HttpClientExtensions.Deserialize``1(System.Net.Http.HttpResponseMessage,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Helper method to deserialize content in a number of diferent ways
+            </summary>
+            <typeparam name="T"> The type to deserialize to
+            <see cref="T:System.IO.Stream"/>
+            <see cref="T:System.String"/>
+            <see cref="T:System.Byte"/> array
+            <see cref="T:System.Dynamic.ExpandoObject"/> when T is dynamic
+            or othe POCO types
+            </typeparam>
+            <param name="response">An <see cref="T:System.Net.Http.HttpResponseMessage"/> to deserialize</param>
+            <param name="settings">Json settings to control deserialization</param>
+            <returns>content deserialized to type T</returns>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.DynamicRestClient">
+            <summary>
+            A rest client that uses dynamic objects for invocation and result values
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.#ctor(System.String,DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+            <summary>
+            ctor
+            </summary>
+            <param name="baseUri">The root url for all requests</param>
+            <param name="defaults">Default values to add to all requests</param>
+            <param name="configure">A callback function that will be called just before any request is sent</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.#ctor(System.Uri,DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+            <summary>
+            ctor
+            </summary>
+            <param name="baseUri">The root url for all requests</param>
+            <param name="defaults">Default values to add to all requests</param>
+            <param name="configure">A callback function that will be called just before any request is sent</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.#ctor(System.Net.Http.HttpClient,System.Boolean,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+            <summary>
+            ctor
+            </summary>
+            <param name="client">HttpClient to use for communication</param>
+            <param name="disposeClient">Flag indicating whether to take ownership of the client instance and dispose of when this instance is disposed</param>
+            <param name="configure">A callback function that will be called just before any request is sent</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.#ctor(System.String,System.Net.Http.HttpMessageHandler,System.Boolean,DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+            <summary>
+            ctor
+            </summary>
+            <param name="baseUri">The root url for all requests</param>
+            <param name="handler">HttpMessageHandler to use for communication</param>
+            <param name="disposeHandler">Flag indicating whether to take ownership of the handler instance and dispose of when this instance is disposed</param>
+            <param name="defaults">Default values to add to all requests</param>
+            <param name="configure">A callback function that will be called just before any request is sent</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.#ctor(System.Uri,System.Net.Http.HttpMessageHandler,System.Boolean,DynamicRestProxy.PortableHttpClient.DynamicRestClientDefaults,System.Func{System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken,System.Threading.Tasks.Task})">
+            <summary>
+            ctor
+            </summary>
+            <param name="baseUri">The root url for all requests</param>
+            <param name="handler">HttpMessageHandler to use for communication</param>
+            <param name="disposeHandler">Flag indicating whether to take ownership of the handler instance and dispose of when this instance is disposed</param>
+            <param name="defaults">Default values to add to all requests</param>
+            <param name="configure">A callback function that will be called just before any request is sent</param>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.DynamicRestClient.BaseUri">
+            <summary>
+            <see cref="P:DynamicRestProxy.RestProxy.BaseUri"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.CreateProxyNode(DynamicRestProxy.RestProxy,System.String)">
+            <summary>
+            <see cref="M:DynamicRestProxy.RestProxy.CreateProxyNode(DynamicRestProxy.RestProxy,System.String)"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.CreateVerbAsyncTask``1(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Threading.CancellationToken,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            <see cref="M:DynamicRestProxy.RestProxy.CreateVerbAsyncTask``1(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Threading.CancellationToken,Newtonsoft.Json.JsonSerializerSettings)"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.DynamicRestClient.Dispose">
+            <summary>
+            Disposes the contained HttpClient
+            </summary>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.PostUrlParam">
+            <summary>
+            By default POST parameters will be form encoded.
+            Use this to force the request to have a particular parameter encoded on the url query
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.PortableHttpClient.PostUrlParam.Value">
+            <summary>
+            The parameter's value
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.PostUrlParam.#ctor(System.Object)">
+            <summary>
+            ctor
+            </summary>
+            <param name="v">The param value</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.PostUrlParam.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+            <returns>string representation of Value</returns>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.PostUrlParam.GetHashCode">
+            <summary>
+            <see cref="M:System.Object.GetHashCode"/>
+            </summary>
+            <returns>the hashcode of Value</returns>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.PostUrlParam.Equals(System.Object)">
+            <summary>
+            <see cref="M:System.Object.Equals(System.Object)"/>
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DynamicRestProxy.PortableHttpClient.StreamInfo">
+            <summary>
+            Wrapper class for a stream that relates the stream to metadata (MIME type)
+            about the stream so metadata can be added to content headers
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.StreamInfo.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="stream">stream</param>
+            <param name="mimeType">MIME type</param>
+        </member>
+        <member name="M:DynamicRestProxy.PortableHttpClient.StreamInfo.Dispose">
+            <summary>
+            Disposes the underlying stream when called
+            </summary>
+        </member>
+        <member name="T:DynamicRestProxy.RestProxy">
+            <summary>
+            Base proxy class. Derived classes implement the specfic rest/http communication mechanisms.
+            Each node in a chain of proxy instances represents a specific endpoint
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.#ctor(DynamicRestProxy.RestProxy,System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="parent"><see cref="P:DynamicRestProxy.RestProxy.Parent"/></param>
+            <param name="name"><see cref="P:DynamicRestProxy.RestProxy.Name"/></param>
+        </member>
+        <member name="P:DynamicRestProxy.RestProxy.Parent">
+            <summary>
+            The parent of this node
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.RestProxy.Name">
+            <summary>
+            The name of this node. This is the text used when forming the complete Url
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.RestProxy.Index">
+            <summary>
+            The numeric index of this node in the chain
+            </summary>
+        </member>
+        <member name="P:DynamicRestProxy.RestProxy.BaseUri">
+            <summary>
+            The base Url of the endpoint. Overridden in derived classes to allow specific rest client to determine how it is stored
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.CreateProxyNode(DynamicRestProxy.RestProxy,System.String)">
+            <summary>
+            Factory method used to create instances of derived child nodes. Overriden in derived classes to create derived instances
+            </summary>
+            <param name="parent">The parent of the newly created child</param>
+            <param name="name">The name of the newly created child</param>
+            <returns>Derived child instance</returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.TryInvoke(System.Dynamic.InvokeBinder,System.Object[],System.Object@)">
+            <summary>
+            <see cref="M:System.Dynamic.DynamicObject.TryInvoke(System.Dynamic.InvokeBinder,System.Object[],System.Object@)"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.CreateVerbAsyncTask``1(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Threading.CancellationToken,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Abstract method to create a Task that will execute the necessary http communication
+            </summary>
+            <param name="verb">The http verb to execute (must be get, post, put, patch or delete)</param>
+            <param name="unnamedArgs">Unnamed arguments passed to the invocation. These go into the http request body</param>
+            <param name="namedArgs">Named arguments supplied to the invocation. These become http request parameters</param>
+            <param name="cancelToken">A CancellationToken for the async operations</param>
+            <param name="serializationSettings">Settings to use for response deserialization</param>
+            <returns>Task{dynamic} that will execute the http call and return a dynamic object with the results</returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.TryInvokeMember(System.Dynamic.InvokeMemberBinder,System.Object[],System.Object@)">
+            <summary>
+            <see cref="M:System.Dynamic.DynamicObject.TryInvokeMember(System.Dynamic.InvokeMemberBinder,System.Object[],System.Object@)"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            <see cref="M:System.Dynamic.DynamicObject.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)"/>
+            </summary>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.GetEndPointPath(System.Text.StringBuilder)">
+            <summary>
+            Used to generate a relative Url for the endpoint 
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.GetEndPointPath">
+            <summary>
+            The relative Url (minus parameters) for this endpoint
+            </summary>
+            <returns>The relative part of the url (relative to <see cref="P:DynamicRestProxy.RestProxy.BaseUri"/>)</returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+            <returns>The full Url of this node in the path chain</returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.GetHashCode">
+            <summary>
+            <see cref="M:System.Object.GetHashCode"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.Equals(System.Object)">
+            <summary>
+            <see cref="M:System.Object.Equals(System.Object)"/>
+            </summary>
+            <param name="obj"></param>
+            <returns>compares the complete url as a string to obj</returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.op_Implicit(DynamicRestProxy.RestProxy)~System.String">
+            <summary>
+            Convert the RestProxy to its full url as a string
+            </summary>
+            <param name="proxy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicRestProxy.RestProxy.op_Explicit(DynamicRestProxy.RestProxy)~System.Uri">
+            <summary>
+            Returns an Uri represtation of the full Url
+            </summary>
+            <param name="proxy"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

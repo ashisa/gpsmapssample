@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="AgiledgeSample.CapturePhoto"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AgiledgeSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <CaptureElement x:Name="capturePreview" Height="350" Width="350" Visibility="Visible"/>
+            <Image x:Name="imagePreview" Height="350" Width="350" Visibility="Collapsed"/>
+
+            <Button x:Name="capturePhoto" Click="capturePhoto_Click" Content="Capture Photo" HorizontalAlignment="Center"/>
+            <Button x:Name="selectPhoto" Click="selectPhoto_Click" Content="Select Photo from Library" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>

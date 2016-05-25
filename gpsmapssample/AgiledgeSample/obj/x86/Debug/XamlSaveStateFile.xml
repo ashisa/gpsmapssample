@@ -1,0 +1,8 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <ReferenceAssembly PathName="c:\users\ashisa\documents\visual studio 2015\projects\agiledgesample\packages\dynamicrestclient.3.0.0\lib\portable-net45+netcore45+wpa81+wp8\dynamicrestproxy.portablehttpclient.dll" HashGuid="76a2853b-e500-5b8d-b6ec-fddc6958fca0" />
+    <ReferenceAssembly PathName="c:\users\ashisa\documents\visual studio 2015\projects\agiledgesample\packages\newtonsoft.json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\newtonsoft.json.dll" HashGuid="86223907-5808-be51-71b4-c872f8140e29" />
+    <ReferenceAssembly PathName="c:\users\ashisa\documents\visual studio 2015\projects\agiledgesample\packages\microsoft.net.http.2.2.29\lib\wpa81\system.net.http.extensions.dll" HashGuid="794366f8-cc6d-f0fa-3d07-33b45136e193" />
+    <ReferenceAssembly PathName="c:\users\ashisa\documents\visual studio 2015\projects\agiledgesample\packages\microsoft.net.http.2.2.29\lib\wpa81\system.net.http.primitives.dll" HashGuid="7b71418d-e056-7613-c839-85fb8f6472a6" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>

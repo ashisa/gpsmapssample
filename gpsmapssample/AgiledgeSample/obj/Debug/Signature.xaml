@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="AgiledgeSample.Signature"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AgiledgeSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <Canvas x:ConnectionId='1' Height="200" Width="400" Background="White" Name="myCanvas"                                      />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button x:ConnectionId='2' Name="save" Content="save"                    Margin="10"/>
+                <Button x:ConnectionId='3' Name="show" Content="show"                    IsEnabled="False" Margin="10"/>
+            </StackPanel>
+            <Image x:Name="signImage"/>
+        </StackPanel>
+    </Grid>
+</Page>
+

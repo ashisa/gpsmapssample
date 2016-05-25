@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-MMOUECP</Machine>
+    <WindowsUser>ashisa</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows Phone 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>6ea01a28-20d6-44bc-b377-c69057ad32e7</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\AgiledgeSample.exe">
+      <PackagePath>AgiledgeSample.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\packages\DynamicRestClient.3.0.0\lib\portable-net45+netcore45+wpa81+wp8\DynamicRestProxy.PortableHttpClient.dll">
+      <PackagePath>DynamicRestProxy.PortableHttpClient.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\packages\Microsoft.Net.Http.2.2.29\lib\wpa81\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\packages\Microsoft.Net.Http.2.2.29\lib\wpa81\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\PeoplePin.png">
+      <PackagePath>Assets\PeoplePin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\AgiledgeSample.xr.xml">
+      <PackagePath>AgiledgeSample.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\CapturePhoto.xbf">
+      <PackagePath>CapturePhoto.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\SelectPhoto.xbf">
+      <PackagePath>SelectPhoto.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\Signature.xbf">
+      <PackagePath>Signature.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\ashisa\Documents\Visual Studio 2015\Projects\AgiledgeSample\AgiledgeSample\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
